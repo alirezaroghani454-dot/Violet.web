@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Violet | فروشگاه ساعت مچی ویولت</title>
+  <meta name="description" content="ویولت؛ فروشگاه تخصصی ساعت مچی لوکس. بیش از ۷۰ مدل ساعت کرونوگراف، اتوماتیک، سرامیکی، هوشمند و زنانه با گارانتی اصالت و ۵ سال ضمانت.">
+  <meta name="theme-color" content="#0a0617">
+  <meta property="og:title" content="Violet | فروشگاه ساعت مچی ویولت">
+  <meta property="og:description" content="زمان، با شکوهی بنفش. ساعت‌های لوکس ویولت با گارانتی اصالت.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%238b3dff'/%3E%3Cpath d='M7 9l9 16 9-16' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <!-- Fonts: Vazirmatn (very readable Persian) + Cormorant Garamond (elegant Latin).
+       Offline? See README.md ("Fonts") to host them locally. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- page loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-watch"></div>
+    <div class="latin">VIOLET</div>
+  </div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- announcement bar -->
+<div class="announce" id="announce" aria-label="اطلاعیه‌ها"><div class="announce-track" id="announceTrack"></div></div>
+
+<!-- header -->
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="باز کردن منو" aria-expanded="false"></button>
+
+    <a class="logo" href="#top" aria-label="Violet — صفحه‌ی اصلی">
+      <span class="logo-mark" id="logoMark"></span>
+      <span class="logo-text latin"><span id="brandName">Violet</span><small id="brandSlogan">زمان، با شکوهی بنفش</small></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="منوی اصلی">
+      <button class="icon-btn nav-close hidden" id="navClose" aria-label="بستن منو"></button>
+      <a href="#collections">کلکسیون‌ها</a>
+      <a href="#featured">منتخب‌ها</a>
+      <a href="#deal">تخفیف ویژه</a>
+      <a href="#shop">فروشگاه</a>
+      <a href="#story">درباره‌ی ما</a>
+      <a href="#faq">سوالات متداول</a>
+      <a href="#contact">تماس</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="جستجو"></button>
+      <button class="icon-btn hide-m" id="trackBtn" aria-label="پیگیری سفارش" title="پیگیری سفارش"></button>
+      <button class="icon-btn hide-m" id="themeBtn" aria-label="تغییر تم روشن و تاریک" title="تغییر تم"></button>
+      <button class="icon-btn" id="wishBtn" aria-label="علاقه‌مندی‌ها"><span class="count" id="wishCount">0</span></button>
+      <button class="icon-btn" id="cartBtn" aria-label="سبد خرید"><span class="count" id="cartCount">0</span></button>
+    </div>
+  </div>
+</header>
+<div class="overlay" id="navOverlay"></div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+      <div class="grid-lines"></div>
+    </div>
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="badge hero-eyebrow" id="heroEyebrow"></span>
+        <h1 id="heroTitle"></h1>
+        <p class="hero-sub" id="heroSub"></p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" id="heroCta1" href="#shop"></a>
+          <a class="btn btn-lg" id="heroCta2" href="#deal"></a>
+        </div>
+        <div class="hero-stats" id="heroStats"></div>
+      </div>
+
+      <div class="hero-stage" id="heroStage">
+        <div class="stage-glow"></div>
+        <svg class="orbit-ring" viewBox="0 0 400 400" aria-hidden="true"><defs><path id="orbitPath" d="M200,200 m-170,0 a170,170 0 1,1 340,0 a170,170 0 1,1 -340,0"/></defs><text><textPath href="#orbitPath" startOffset="0">VIOLET · TIME IN PURPLE · SWISS MADE · VIOLET · TIME IN PURPLE · SWISS MADE ·</textPath></text></svg>
+        <svg class="orbit-ring r2" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="160" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-dasharray="2 10" stroke-width="2" style="color:var(--primary-2)"/></svg>
+
+        <div class="watch-3d" id="watch3d">
+          <div class="layer shadow" id="heroWatchShadow"></div>
+          <div class="layer main" id="heroWatchMain"></div>
+          <div class="glare"></div>
+        </div>
+
+        <div class="float-tag t1"><span class="ico" id="tagIco1"></span><span>شیشه‌ی یاقوت کبود<small>ضدخش و ضدانعکاس</small></span></div>
+        <div class="float-tag t2"><span class="ico" id="tagIco2"></span><span>ضدآب تا ۲۰۰ متر<small>مناسب غواصی</small></span></div>
+        <div class="float-tag t3"><span class="ico" id="tagIco3"></span><span>۵ سال گارانتی<small>اصالت تضمینی</small></span></div>
+      </div>
+    </div>
+    <a class="scroll-hint" href="#collections" aria-label="پایین بروید"></a>
+  </section>
+
+  <!-- ============ TRUST ============ -->
+  <section class="trust" id="sec-trust"><div class="container"><div class="trust-grid" id="trustGrid"></div></div></section>
+
+  <!-- ============ COLLECTIONS ============ -->
+  <section class="section" id="collections">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="kicker">کلکسیون‌های ویولت</span><h2>هشت دنیا، هشت شخصیت</h2><p>هر کلکسیون داستان خودش را دارد؛ از کرونوگراف‌های اسپرت تا ظرافت رزگلد. با ماوس یا انگشت روی کارت‌ها حرکت کنید.</p></div>
+        <a class="btn" href="#shop" data-col="">همه‌ی ساعت‌ها</a>
+      </div>
+      <div class="col-grid" id="colGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED ============ -->
+  <section class="section" id="featured" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="kicker">منتخب‌های ویولت</span><h2>پرفروش‌ها و نسخه‌های محدود</h2></div>
+        <div class="rail-nav"><button class="icon-btn" id="featPrev" aria-label="قبلی"></button><button class="icon-btn" id="featNext" aria-label="بعدی"></button></div>
+      </div>
+      <div class="rail-wrap"><div class="rail" id="featuredRail"></div></div>
+    </div>
+  </section>
+
+  <!-- ============ DAILY DEAL ============ -->
+  <section class="section" id="deal" style="padding-top:0">
+    <div class="container"><div class="deal reveal" id="dealBox"></div></div>
+  </section>
+
+  <!-- ============ SHOP ============ -->
+  <section class="section" id="shop" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="kicker">فروشگاه</span><h2>همه‌ی ساعت‌های ویولت</h2><p>فیلتر کنید، مرتب کنید و مدل دلخواهتان را پیدا کنید. روی هر ساعت بروید تا بچرخد.</p></div>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="filters" id="filters" aria-label="فیلترها">
+          <div class="filters-head"><h3>فیلترها</h3><button class="btn btn-sm btn-ghost" id="filterReset">پاک‌کردن همه</button></div>
+          <div id="filterBody"></div>
+          <button class="btn btn-primary btn-block hidden filters-apply" id="filtersApply" style="margin-top:14px">نمایش نتایج</button>
+        </aside>
+
+        <div class="shop-main">
+          <div class="shop-toolbar">
+            <button class="btn filter-toggle" id="filterToggle"></button>
+            <label class="shop-search"><span class="sr-only">جستجو در فروشگاه</span><span id="shopSearchIco"></span><input class="input" id="shopSearch" type="search" placeholder="نام مدل، کلکسیون یا رنگ..." autocomplete="off"></label>
+            <select class="select" id="sortSelect" aria-label="مرتب‌سازی">
+              <option value="featured">پیشنهاد ویولت</option>
+              <option value="newest">جدیدترین</option>
+              <option value="bestseller">پرفروش‌ترین</option>
+              <option value="priceAsc">ارزان‌ترین</option>
+              <option value="priceDesc">گران‌ترین</option>
+              <option value="rating">بیشترین امتیاز</option>
+              <option value="discount">بیشترین تخفیف</option>
+            </select>
+            <div class="view-toggle" role="group" aria-label="نحوه‌ی نمایش"><button class="active" id="viewGrid" aria-label="شبکه‌ای"></button><button id="viewList" aria-label="لیستی"></button></div>
+          </div>
+          <div class="result-info"><span id="resultInfo"></span><div class="active-filters" id="activeFilters"></div></div>
+          <div class="p-grid" id="pGrid"></div>
+          <div class="load-more" id="loadMore"><span id="loadMoreInfo"></span><button class="btn btn-lg" id="loadMoreBtn">نمایش بیشتر</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section class="section" id="story">
+    <div class="container story-grid">
+      <div class="story-visual reveal" id="storyVisual"><span class="ring a"></span><span class="ring b"></span></div>
+      <div class="story-text reveal">
+        <div class="section-head" style="margin-bottom:0"><div><span class="kicker">داستان ویولت</span></div></div>
+        <h2 id="storyTitle"></h2>
+        <p id="storyText1"></p><p id="storyText2"></p>
+        <ul class="story-points" id="storyPoints"></ul>
+        <a class="btn btn-primary" style="margin-top:30px" href="#shop">شروع انتخاب</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section" id="testimonials" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="kicker">نظر مشتریان</span><h2>آن‌ها که زمان را بنفش دیدند</h2></div>
+        <div class="rail-nav"><button class="icon-btn" id="testiPrev" aria-label="قبلی"></button><button class="icon-btn" id="testiNext" aria-label="بعدی"></button></div>
+      </div>
+      <div class="testi-wrap"><div class="testi-track" id="testiTrack"></div></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq" style="padding-top:0">
+    <div class="container faq-grid">
+      <div class="section-head reveal"><div><span class="kicker">سوالات متداول</span><h2>پاسخ پرسش‌های شما</h2><p>پاسخ سوال‌تان را پیدا نکردید؟ در واتساپ یا از فرم تماس بپرسید.</p><a class="btn btn-primary" style="margin-top:22px" href="#contact">پرسیدن سوال</a></div></div>
+      <div class="faq-list reveal" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="section" id="newsletter" style="padding-top:0">
+    <div class="container">
+      <div class="news reveal">
+        <h2>اولین نفری باشید که از مدل‌های جدید باخبر می‌شود</h2>
+        <p>ایمیل‌تان را بگذارید تا کد تخفیف اولین خرید و خبر نسخه‌های محدود را برایتان بفرستیم.</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <input class="input" id="newsEmail" type="email" placeholder="ایمیل شما" autocomplete="email" aria-label="ایمیل">
+          <button class="btn btn-primary" type="submit">عضویت در خبرنامه</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="kicker">تماس با ما</span><h2>در خدمت شما هستیم</h2></div></div>
+      <div class="contact-grid">
+        <div class="contact-info reveal" id="contactInfo"></div>
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="row cols-2">
+            <div class="field"><label for="cfName">نام و نام خانوادگی</label><input class="input" id="cfName" autocomplete="name"></div>
+            <div class="field"><label for="cfPhone">شماره‌ی موبایل</label><input class="input" id="cfPhone" inputmode="tel" autocomplete="tel" placeholder="09123456789"></div>
+          </div>
+          <div class="field"><label for="cfSubject">موضوع</label>
+            <select class="select" id="cfSubject"><option>مشاوره‌ی خرید</option><option>پیگیری سفارش</option><option>گارانتی و خدمات پس از فروش</option><option>همکاری و فروش عمده</option><option>سایر موارد</option></select></div>
+          <div class="field"><label for="cfText">پیام شما</label><textarea class="textarea" id="cfText"></textarea></div>
+          <button class="btn btn-primary btn-lg" type="submit">ارسال پیام</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="logo" href="#top"><span class="logo-mark" id="footLogoMark"></span><span class="logo-text latin"><span id="footBrand">Violet</span></span></a>
+        <p id="footAbout"></p>
+        <div class="socials" id="socials"></div>
+      </div>
+      <div><h4>دسترسی سریع</h4><ul>
+        <li><a href="#collections">کلکسیون‌ها</a></li><li><a href="#shop">فروشگاه</a></li><li><a href="#deal">تخفیف ویژه</a></li><li><a href="#story">درباره‌ی ما</a></li><li><a href="#faq">سوالات متداول</a></li></ul></div>
+      <div><h4>خدمات مشتریان</h4><ul>
+        <li><a href="#" data-open="track">پیگیری سفارش</a></li><li><a href="#faq">شرایط بازگشت کالا</a></li><li><a href="#faq">گارانتی ویولت</a></li><li><a href="#contact">تماس با ما</a></li><li><a href="admin/index.html">ورود مدیران</a></li></ul></div>
+      <div class="footer-contact"><h4>اطلاعات تماس</h4><ul id="footContact"></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span id="copyright"></span>
+      <div class="pay-badges"><span>پرداخت آنلاین</span><span>کارت به کارت</span><span>پرداخت در محل</span><span>ارسال بیمه‌شده</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- floating buttons -->
+<div class="fab-stack">
+  <a class="fab wa" id="waBtn" href="#" target="_blank" rel="noopener" aria-label="گفتگو در واتساپ"></a>
+  <button class="fab up" id="upBtn" aria-label="بازگشت به بالا"></button>
+</div>
+
+<!-- compare bar -->
+<div class="compare-bar" id="compareBar"><span id="compareText"></span><button class="btn btn-primary btn-sm" id="compareOpen">مقایسه</button><button class="icon-btn" id="compareClear" aria-label="پاک کردن مقایسه" style="width:36px;height:36px"></button></div>
+
+<!-- overlays -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="cartDrawer" aria-label="سبد خرید" aria-hidden="true">
+  <div class="drawer-head"><h3 id="cartHeadTitle">سبد خرید</h3><button class="icon-btn" data-close="cart" aria-label="بستن"></button></div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</aside>
+
+<aside class="drawer" id="wishDrawer" aria-label="علاقه‌مندی‌ها" aria-hidden="true">
+  <div class="drawer-head"><h3>علاقه‌مندی‌ها</h3><button class="icon-btn" data-close="wish" aria-label="بستن"></button></div>
+  <div class="drawer-body" id="wishBody"></div>
+</aside>
+
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-label="جزئیات محصول" aria-hidden="true"><div class="modal-bg" data-close="product"></div>
+  <div class="modal-box"><button class="icon-btn modal-close" data-close="product" aria-label="بستن"></button><div class="modal-scroll" id="pdContent"></div></div></div>
+
+<div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="تکمیل خرید" aria-hidden="true"><div class="modal-bg" data-close="checkout"></div>
+  <div class="modal-box md"><button class="icon-btn modal-close" data-close="checkout" aria-label="بستن"></button><div class="modal-scroll" id="checkoutContent"></div></div></div>
+
+<div class="modal" id="trackModal" role="dialog" aria-modal="true" aria-label="پیگیری سفارش" aria-hidden="true"><div class="modal-bg" data-close="track"></div>
+  <div class="modal-box sm"><button class="icon-btn modal-close" data-close="track" aria-label="بستن"></button><div class="modal-scroll" id="trackContent"></div></div></div>
+
+<div class="modal" id="compareModal" role="dialog" aria-modal="true" aria-label="مقایسه‌ی ساعت‌ها" aria-hidden="true"><div class="modal-bg" data-close="compare"></div>
+  <div class="modal-box md"><button class="icon-btn modal-close" data-close="compare" aria-label="بستن"></button><div class="modal-scroll"><div class="modal-title"><h2>مقایسه‌ی ساعت‌ها</h2></div><div class="modal-pad"><div class="table-wrap" id="compareContent"></div></div></div></div></div>
+
+<div class="search-ov" id="searchOv" role="dialog" aria-modal="true" aria-label="جستجو" aria-hidden="true">
+  <div class="search-box">
+    <label class="shop-search"><span class="sr-only">جستجو</span><span id="searchOvIco"></span><input class="input" id="searchInput" type="search" placeholder="دنبال کدام ساعت می‌گردید؟" autocomplete="off"></label>
+    <div class="search-results" id="searchResults"></div>
+    <div class="quick-tags" id="quickTags"></div>
+    <div style="text-align:center;margin-top:18px"><button class="btn btn-ghost" data-close="search">بستن (Esc)</button></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<!-- core -->
+<script src="js/core/utils.js"></script>
+<script src="js/core/icons.js"></script>
+<script src="js/core/defaults.js"></script>
+<script src="js/core/watch-svg.js"></script>
+<script src="js/core/products-data.js"></script>
+<script src="js/core/db.js"></script>
+<!-- storefront -->
+<script src="js/site/ui.js"></script>
+<script src="js/site/cards.js"></script>
+<script src="js/site/hero.js"></script>
+<script src="js/site/sections.js"></script>
+<script src="js/site/shop.js"></script>
+<script src="js/site/product.js"></script>
+<script src="js/site/cart.js"></script>
+<script src="js/site/checkout.js"></script>
+<script src="js/site/forms.js"></script>
+<script src="js/site/app.js"></script>
+</body>
+</html>
